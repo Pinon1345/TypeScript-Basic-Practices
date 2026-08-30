@@ -159,3 +159,17 @@ const sum = (...numbers: number[]) => {
 sum(10, 20, 30, 40, 50);
 
 
+// union type and intersection type
+
+let userId: string | number;
+
+userId = 100;
+userId = "100";
+
+type paymentMethod = "Cash" | "Card" | "Bkash" | "Nagad";
+
+const payment = (paymentGateway: paymentMethod) => {
+    console.log(`Payment method is ${paymentGateway}`);
+}
+
+payment("Bkash");
