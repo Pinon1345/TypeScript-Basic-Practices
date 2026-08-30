@@ -108,8 +108,21 @@ const getFoodPrice = (product: Food) => {
 
 const user = {
     name: "Mrs. Anabiya Meherjabin",
+    maritalStatus: "Single",
+    profession: "Software Engineer",
     age: 24,
 }
 
+const updateUser = {
+    ...user,
+    age: 25,
+}
+
+const arr: number[] = [11, 12, 13, 14, 15];
+
+const sum = (...numbers: number[]) => {
+    const result = numbers.reduce((total, number) => total + number, 0);
+}
+sum(10, 20, 30, 40, 50);
 
 
