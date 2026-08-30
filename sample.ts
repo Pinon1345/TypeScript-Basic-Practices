@@ -32,17 +32,17 @@ const studentWithRoll: [string, number] = ["Fourkan Bin Ilias", 100];
 
 // Objects 
 
-interface User {
-    id: number,
-    name: string,
-    age: number,
-    isStudent: boolean,
-    organization?: string, // Literal type 
-    address?: {
-        city: string,
-        country: string,
-    }
-}
+// interface User {
+//     id: number,
+//     name: string,
+//     age: number,
+//     isStudent: boolean,
+//     organization?: string, // Literal type 
+//     address?: {
+//         city: string,
+//         country: string,
+//     }
+// }
 
 // type User = {
 //     id: number,
@@ -106,12 +106,34 @@ const getFoodPrice = (product: Food) => {
 
 // rest operator and spread operator
 
-const user = {
+type User = {
+    name: string,
+    maritalStatus: string,
+    profession: string,
+    age: number,
+    address: {
+        city: string,
+        postalCode?: number,
+    }
+};
+
+const user: User = {
     name: "Mrs. Anabiya Meherjabin",
     maritalStatus: "Single",
     profession: "Software Engineer",
     age: 24,
+    address: {
+        city: "Dhaka",
+    }
 }
+
+// const userName = user.name;
+
+const { name: userName } = user;
+console.log(userName);
+
+const userProfession = user.profession;
+const userAge = user.age;
 
 const updateUser = {
     ...user,
@@ -120,7 +142,18 @@ const updateUser = {
 
 const arr: number[] = [11, 12, 13, 14, 15];
 
+const homeFoods = ["Dom Biriani", "Kacchi Biryani", "Fried Rice", "Chicken Curry", "Beef Steak", "Fish Fry", "Soup"];
+
+const homeDrinks = ["Coca Cola", "Pepsi", "Fanta", "Sprite", "7Up", "Mountain Dew"];
+
+const allHomeFoodsAndDrinks: string[] = [...homeFoods, ...homeDrinks];
+
+console.log(allHomeFoodsAndDrinks);
+
+
+
 const sum = (...numbers: number[]) => {
+    console.log(numbers);
     const result = numbers.reduce((total, number) => total + number, 0);
 }
 sum(10, 20, 30, 40, 50);
