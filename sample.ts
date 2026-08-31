@@ -173,3 +173,65 @@ const payment = (paymentGateway: paymentMethod) => {
 }
 
 payment("Bkash");
+
+
+// intersection type
+
+type Profile = {
+    id: number,
+    name: string,
+    profilePicture?: undefined | string,
+    email: string,
+    phone: number,
+    nationalId: number,
+    address: {
+        city: string,
+        postalCode: number,
+    },
+}
+
+type Employee = {
+    employeeId: number,
+    role: "admin" | "user",
+    salary: number,
+    department: string,
+}
+
+type WorkingStatus = {
+    isWorking: boolean,
+    workingHours: number,
+}
+
+const profileUser : Profile & Employee & WorkingStatus = {
+    id: 101,
+    name: "Fourkan Bin Ilias",
+    email: "pinonfurkan1@gmail.com",
+    phone: 1680224284,
+    nationalId: 9178803053,
+    address: {
+        city: "Agrabad, Chittagong",
+        postalCode: 4424,
+    },
+    employeeId: 45632782,
+    role: "admin",
+    salary: 52000,
+    department: "IT",
+    isWorking: true,
+    workingHours: 8,
+}
+
+console.log("Employee Profile Details:", profileUser);
+
+
+// same same but different
+
+const myAgeIs = 24;
+
+const msg : string = myAgeIs >= 18 ? "You are eligible for voting" : "You are not eligible for voting";
+
+console.log(msg);
+
+const username : string | null = "Fourkan Bin Ilias";
+const displayName = username ?? "Guest User";
+
+console.log(displayName);
